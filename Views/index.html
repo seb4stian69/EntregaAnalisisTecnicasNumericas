@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Metodo de muller</title>
+
+        <link rel="stylesheet" href="./Styles/styles.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+            crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+        
+        <div class="parent">
+            
+            <div class="calculator-side">
+
+                <input id="dataInput_x0" class="dataInput" placeholder="X inicial (X0)" type="number">
+                <input id="dataInput_x1" class="dataInput" placeholder="X medio (x1)" type="number">
+                <input id="dataInput_x2" class="dataInput" placeholder="X final (x2)" type="number">
+                <input id="dataInput_finish" class="dataInput" placeholder="Tolerancia" type="number">
+
+                <div class="calculator">
+
+                    <input type="text" disabled id="inputDataBar" class="inputbar">
+
+                    <div id="calculatorBtns" class="calcBtns">
+
+                        <button id="functionBtn" class="rad_deg">Rad | Deg</button>
+                        <button id="functionBtn" class="factorial">x!</button>
+                        <button id="functionBtn" class="bracketsLeft">(</button>
+                        <button id="functionBtn" class="bracketsRight">)</button>
+                        <button id="functionBtn" class="percentage">%</button>
+                        <button id="functionBtn" class="ac">AC</button>
+                        <button id="functionBtn" class="inv">Inv</button>
+                        <button id="functionBtn" class="sin">sin</button>
+                        <button id="functionBtn" class="ln">ln</button>
+
+                        <button id="numberBtn" class="seven">7</button>
+                        <button id="numberBtn" class="eight">8</button>
+                        <button id="numberBtn" class="nine">9</button>
+                        <button id="functionBtn" class="divide">÷</button>
+
+                        <button id="functionBtn" class="pi">π</button>
+                        <button id="functionBtn" class="cos">cos</button>
+                        <button id="functionBtn" class="log">log</button>
+
+                        <button id="numberBtn" class="four">4</button>
+                        <button id="numberBtn" class="five">5</button>
+                        <button id="numberBtn" class="six">6</button>
+                        <button id="functionBtn" class="multiplication">×</button>
+
+                        <button id="functionBtn" class="euler">e</button>
+                        <button id="functionBtn" class="tan">tan</button>
+                        <button id="functionBtn" class="sqrt">√</button>
+
+                        <button id="numberBtn" class="one">1</button>
+                        <button id="numberBtn" class="two">2</button>
+                        <button id="numberBtn" class="three">3</button>
+                        <button id="functionBtn" class="substract">-</button>
+
+                        <button id="functionBtn" class="ans">Ans</button>
+                        <button id="functionBtn" class="exp">EXP</button>
+                        <button id="functionBtn" class="pow">xⁿ</button>
+
+                        <button id="numberBtn" class="zero">0</button>
+                        <button id="numberBtn" class="dot">.</button>
+                        <button id="icogniteBtn" class="equis">x</button>
+                        <button id="functionBtn"class="add">+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="graphic-side">
+                <div id="graphic"></div>
+            </div>
+
+            <div class="table-side">
+                <div id="table"></div>
+            </div>
+
+        </div>
+
+    </body>
+
+    <script type="module" src="../Utils/Utils.mjs" async defer></script>
+    <script type="module" src="../Utils/MainView.mjs" async defer></script>
+    <script type="module" src="../Functions/MetodoMuller.mjs" async defer></script>
+
+</html>
