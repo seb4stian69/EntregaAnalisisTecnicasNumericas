@@ -1,8 +1,16 @@
 
-const fixed = 6;
+let fixed = 6;
 let tableNull = false;
+let toEval;
 
-document.getElementById("dataInput_finish").addEventListener('input', ()=> calcular() );
+document.getElementById("dataInput_finish").addEventListener('input', ()=>{
+    calcular();
+});
+
+document.getElementById('dataInput_decimas').addEventListener('input', ()=>{
+    fixed = document.getElementById('dataInput_decimas').value;
+    calcular();
+});
 
 const calcular=()=> {
     
@@ -11,6 +19,8 @@ const calcular=()=> {
     let x2 = parseFloat(document.getElementById("dataInput_x2").value);
     let tol = document.getElementById("dataInput_finish").value * 100;
     
+    document.getElementById('dataInput_decimas').style.display = 'inline-block';
+
     let error = [];
     
     let tabla = '<table class="powertable table table-bordered"><thead class="table-dark head"><tr><th scope="col">I</th><th scope="col">X0</th><th scope="col">X1</th><th scope="col">X2</th><th scope="col">f(X0)</th><th scope="col">f(X1)</th><th scope="col">f(X2)</th><th scope="col">H0</th><th scope="col">H1</th><th scope="col">δ0</th><th scope="col">δ1</th><th scope="col">a</th><th scope="col">b</th><th scope="col">c</th></th><th scope="col">R disc</th><th scope="col">X3</th><th scope="col">Ea</th><th scope="col">Terminacion</th></tr></thead><tbody>';
@@ -59,6 +69,7 @@ const calcular=()=> {
     if( document.getElementById("dataInput_finish").value !="" ){
         document.getElementById("table").innerHTML = tabla;
     }else{
+        document.getElementById('dataInput_decimas').style.display = 'none';
         document.getElementById("table").innerHTML = null;
     }
 
@@ -66,4 +77,60 @@ const calcular=()=> {
 
 }
 
-const f =(x)=> Math.pow(x, 3) - (13 * x) - 12;
+const f =(x)=>{
+    return eval(
+        convert()
+    )
+};
+
+const convert=()=>{
+
+    let result = '';
+    toEval = document.getElementById('inputDataBar').value
+
+    toEval = toEval.replace('log', 'Math.log10')
+    toEval = toEval.replace('ln', 'Math.log')
+    toEval = toEval.replace('sen', 'Math.sin')
+    toEval = toEval.replace('cos', 'Math.cos')
+    toEval = toEval.replace('tan', 'Math.tan')
+    toEval = toEval.replace('π', 'Math.PI')
+    toEval = toEval.replace('e', 'Math.E')
+    toEval = toEval.replace('√', 'Math.sqrt')
+
+    toEval = toEval.split('');
+
+    for (let i = 0; i < toEval.length; i++) {
+        changeNumber(i)
+    }
+
+    toEval.forEach(element => {
+        result+=element;
+    });
+
+    return result;
+
+}
+
+const changeNumber=(i) => {
+
+    switch(toEval[i]){
+
+        case '×':
+            toEval[i] = '*'
+        break;
+
+        case '÷':
+            toEval[i] = '/'
+        break;
+
+        case '^':
+            toEval[i] = '**'
+        break;
+
+        case '%':
+            toEval[i] = '*(1/100)'
+        break;
+
+    }
+
+}

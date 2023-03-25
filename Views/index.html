@@ -36,6 +36,7 @@
                 <input id="dataInput_x1" class="dataInput" placeholder="X medio (x1)" type="number">
                 <input id="dataInput_x2" class="dataInput" placeholder="X final (x2)" type="number">
                 <input id="dataInput_finish" class="dataInput" placeholder="Tolerancia" type="number">
+                <input id="dataInput_decimas" class="dataInput" placeholder="Decimales" type="number">
 
                 <div class="calculator">
 
@@ -43,13 +44,13 @@
 
                     <div id="calculatorBtns" class="calcBtns">
 
-                        <button id="functionBtn" class="rad_deg">Rad | Deg</button>
-                        <button id="functionBtn" class="factorial">x!</button>
+                        <button id="functionBtn" class="rad_deg nope" disabled>Rad | Deg</button>
+                        <button id="functionBtn" class="factorial nope" disabled>x!</button>
                         <button id="functionBtn" class="bracketsLeft">(</button>
                         <button id="functionBtn" class="bracketsRight">)</button>
                         <button id="functionBtn" class="percentage">%</button>
                         <button id="functionBtn" class="ac">AC</button>
-                        <button id="functionBtn" class="inv">Inv</button>
+                        <button id="functionBtn" class="inv nope" disabled>Inv</button>
                         <button id="functionBtn" class="sin">sin</button>
                         <button id="functionBtn" class="ln">ln</button>
 
@@ -76,8 +77,8 @@
                         <button id="numberBtn" class="three">3</button>
                         <button id="functionBtn" class="substract">-</button>
 
-                        <button id="functionBtn" class="ans">Ans</button>
-                        <button id="functionBtn" class="exp">EXP</button>
+                        <button id="functionBtn" class="del">Del</button>
+                        <button id="functionBtn" class="exp nope" disabled>EXP</button>
                         <button id="functionBtn" class="pow">xⁿ</button>
 
                         <button id="numberBtn" class="zero">0</button>
